@@ -2,27 +2,11 @@ import { fireEvent, render, screen, within } from "@testing-library/react";
 import App from "./App";
 
 describe("Test rendering of the application. It ", () => {
-  it("should display a square with X", () => {
-    render(<App />);
-    // const boardWithX = screen.getByTestId("x-box");
-    // expect(boardWithX.textContent).toBe('X');
-  });
-  it("square with X should be a button", () => {
-    render(<App />);
-    // const button = screen.getAllByRole("button",{name: /X/i});
-    // expect(button[0].textContent).toBe('X');
-  });
+  
   it("should render 9 buttons", () => {
     render(<App />);
     const buttons = screen.getAllByRole("button");
     expect(buttons.length).toBe(9);
-  });
-
-  it("should display 3 buttons only in each board row", () => {
-    render(<App />);
-    // const boardRow = screen.getByTestId("board-row");
-    // const buttons = within(boardRow).getAllByRole("button");
-    // expect(buttons.length).toBe(3);
   });
 
   it("button should display X when clicked", () => {
@@ -33,7 +17,6 @@ describe("Test rendering of the application. It ", () => {
   });
 
   it("should render O if button clicked afetr X", () => {
-    // O is Big O not zero.
     render(<App />);
     const button = screen.getAllByRole("button");
     fireEvent.click(button[0]);

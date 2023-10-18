@@ -9,8 +9,12 @@ function Square({ value, onSquareClick }) {
 }
 
 export default function Board() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const noOfSqaures = 9;
+  const [squares, setSquares] = useState(Array(noOfSqaures).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
+
+  const capitalX = "X";
+  const capitalO = "0";
 
   function handleClick(i) {
     if (calculateWinner(squares) || squares[i]) {
@@ -18,9 +22,9 @@ export default function Board() {
     }
     const nextSquares = squares.slice();
     if (xIsNext) {
-      nextSquares[i] = "X";
+      nextSquares[i] = capitalX;
     } else {
-      nextSquares[i] = "O";
+      nextSquares[i] = capitalO;
     }
     setSquares(nextSquares);
     setXIsNext(!xIsNext);
@@ -32,7 +36,7 @@ export default function Board() {
   if (winner) {
     status = "Winner: " + winner;
   } else {
-    status = "Next player: " + (xIsNext ? "X" : "O");
+    status = "Next player: " + (xIsNext ? capitalX : capitalO);
   }
 
   return (
