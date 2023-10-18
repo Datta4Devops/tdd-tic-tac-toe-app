@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import App from "./App";
 
-describe("App", () => {
+describe("Test rendering of the application. It ", () => {
   it("should display a square with X", () => {
     render(<App />);
     // const boardWithX = screen.getByTestId("x-box");
@@ -40,6 +40,9 @@ describe("App", () => {
     fireEvent.click(button[1]);
     expect(button[1].textContent).toBe("O");
   });
+});
+
+describe("Test working of the game.", () => {
   it("button should be immutable once clicked", () => {
     // O is Big O not zero.
     render(<App />);
